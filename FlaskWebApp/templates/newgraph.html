@@ -1,0 +1,89 @@
+<html>
+    <head>
+        <title>DataViz</title>
+        <style type="text/css">
+            #viz {
+                width: 900px;
+                height: 600px;
+                /*height:auto;*/
+                margin:auto;
+                text-align: center;
+                background-color: white;
+                margin-top: 10vh;
+                margin-bottom: 10vh;
+                border: 1px solid;
+                box-shadow: 5px 8px 14px black;
+                border-color: black;
+                overflow: hidden;
+                object-fit: contain;
+
+            }
+            body{
+                background-color:#B22222;
+
+            }
+            .button-div{
+                margin-bottom:10vh;
+                padding-bottom:10vh;
+                padding-right: 8vh;
+                margin:auto;
+                margin-top:5vh;
+                width:80%;
+
+            }
+            a{
+                color: black;
+	             padding: 12px 16px;
+	             text-decoration: none;
+                 font-weight: 700;
+                 font-family: 'Courgette', cursive;
+                 font-size:30px;
+            }
+            a:hover{
+                color: rgba(245, 245, 245, 0.897)
+            }
+            .a1{
+           float:left;
+            }
+            .a2{
+              float:right;
+            }
+        </style>
+        <script src="https://kit.fontawesome.com/a0d153bce5.js" crossorigin="anonymous"></script>
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Courgette&display=swap" rel="stylesheet">
+        <script src="https://rawgit.com/neo4j-contrib/neovis.js/master/dist/neovis.js"></script>
+        <script src="https://cdn.neo4jlabs.com/neovis.js/v1.5.0/neovis-without-dependencies.js"></script>
+    </head>
+    <script>
+        var query = "MATCH p=()-->() RETURN p LIMIT 40"
+        function draw() {
+            var config = {
+                container_id: "viz",
+                server_url: "bolt://127.0.0.1:7687",
+                server_user: "neo4j",
+                server_password: "24601",
+                labels: {
+                    "PTCL":{
+                        caption: "name"
+                    }
+
+                },
+                relationships: {
+
+                },
+                initial_cypher: query
+            }
+
+            var viz = new NeoVis.default(config);
+            viz.render();
+        }
+    </script>
+    <body onload="draw()">
+        <div id="viz"></div>
+        <div class="button-div">
+            <a href={{ url_for("homepage") }} class="a1"><i class="fas fa-long-arrow-alt-left"></i> Back</a>
+            <a href=""  class="a2">Query Graph <i class="fas fa-long-arrow-alt-right"></i></a>
+        </div>
+    </body>
+</html>

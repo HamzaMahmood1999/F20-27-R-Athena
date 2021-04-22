@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/html">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+<style>
+body {
+  font-family: Arial;
+  color: white;
+}
+
+.split {
+  height: 100%;
+  width: 50%;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  overflow-x: hidden;
+  padding-top: 20px;
+}
+
+.left {
+  left: 0;
+  background-color: #111;
+}
+
+.right {
+  right: 0;
+  background-color: firebrick;
+}
+
+.centered {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.centered img {
+  width: 150px;
+  border-radius: 50%;
+}
+</style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js" type="text/javascript" async></script>
+</head>
+<body>
+
+<div class="split left">
+  <div class="centered">
+    <img src={{ url_for('static', filename= "text-doc.jpg") }}>
+    <h3>Convert your text into a Knowledge Graph</h3>
+    <a href={{ url_for("text") }} class="btn btn-lg btn-success">Convert!</a>
+  </div>
+</div>
+
+<div class="split right">
+  <div class="centered">
+      <img src={{ url_for('static', filename= "k-graph.png") }} >
+    <h3>View our sample Knowledge Graph</h3>
+    <a href={{ url_for("graphviz") }} class="btn btn-lg btn-success">View!</a>
+  </div>
+</div>
+
+</body>
+</html>
