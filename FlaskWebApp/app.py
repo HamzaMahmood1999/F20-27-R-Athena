@@ -32,6 +32,10 @@ def home():
 def homepage():
     return render_template("homepage.html")
 
+@app.route("/about", methods=["POST", "GET"])
+def about():
+    return render_template("about.html")
+
 @app.route("/text", methods=["POST", "GET"])
 def text():
     if request.method == "GET":
@@ -47,9 +51,40 @@ def text():
 def testroute():
     return render_template("newgraph.html")
 
+
+
+
 @app.route("/showgraph", methods=["POST", "GET"])
 def graphviz():
     return render_template("grpahviz.html")
+
+@app.route("/querygraph", methods=["POST", "GET"])
+def query():
+    return render_template("query.html")
+
+@app.route("/querygengraph", methods=["POST", "GET"])
+def genquery():
+    return render_template("genQuery.html")
+
+@app.route("/sampleQ1", methods=["POST", "GET"])
+def sampleQuery():
+    return render_template("sample1.html")
+
+@app.route("/sampleQ2", methods=["POST", "GET"])
+def sampleQuery2():
+    return render_template("sample2.html")
+
+@app.route("/sampleQ3", methods=["POST", "GET"])
+def sampleQuery3():
+    return render_template("sample3.html")
+
+@app.route("/sampleQ4", methods=["POST", "GET"])
+def sampleQuery4():
+    return render_template("sample4.html")
+
+@app.route("/sampleQ5", methods=["POST", "GET"])
+def sampleQuery5():
+    return render_template("sample5.html")
 
 
 

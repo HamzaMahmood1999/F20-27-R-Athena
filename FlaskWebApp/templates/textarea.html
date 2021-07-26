@@ -12,12 +12,12 @@
 <body>
     <div id="wrapper">
 
-        <form id="paper" method="post" action="{{ url_for("testroute") }}">
+        <form id="paper" method="post" action="{{ url_for("genquery") }}">
 
-            <div id="margin" id="title"><h2>Write your sample text <i class="fas fa-feather-alt"></i>            </h2></div>
+            <div id="margin" id="title"><h2>Write your sample text <i class="fas fa-feather-alt"></i></h2></div>
             <textarea placeholder="Enter your text..." id="text" name="rawtext" rows="4" ></textarea>
             <br>
-            <<button  type="submit" id="button"><i class="fas fa-greater-than" style="-webkit-text-stroke: 0px white;"></i> Create</button>
+            <<button class="glow-on-hover"  type="submit" id="button"><i class="fas fa-greater-than" style="-webkit-text-stroke: 0px white;"></i> Create</button>
 
         </form>
 

@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>about</title>
+<style id="applicationStylesheet" type="text/css">
+	.mediaViewInfo {
+		--web-view-name: about;
+		--web-view-id: about;
+		--web-scale-on-resize: true;
+		--web-enable-deep-linking: true;
+	}
+	:root {
+		--web-view-ids: about;
+	}
+	* {
+		margin: 0;
+		padding: 0;
+		box-sizing: border-box;
+		border: none;
+		background-size: contain;
+	}
+	#mybody{
+		width: 90vh;
+		height: 90vh;
+	}
+    mybutton {
+    background-color: Transparent;
+    background-repeat:no-repeat;
+    border: none;
+    cursor:pointer;
+    overflow: hidden;
+    outline:none;
+	width: 242px;
+	height: 105px;
+	rx: 15;
+	ry: 15;
+	}
+	/*@keyframes  {
+
+
+	}*/
+	#about {
+		position: relative;
+		width: 230vh;
+		height: 924px;
+		min-width: fit-content;
+		min-width: fit-content;
+		background-color: rgba(20,20,20,1);
+		overflow: auto;
+		--web-animation: fadein 0.5s ease-in-out;
+		--web-action-type: page;
+		/*--web-action-target: demo1.html;*/
+		cursor: pointer;
+		--web-view-name: about;
+		--web-view-id: about;
+		--web-scale-on-resize: true;
+		--web-enable-deep-linking: true;
+	}
+	/*@keyframes  {
+
+
+	}*/
+	#greekman {
+		position: absolute;
+		width: 686px;
+		height: 802px;
+		left: 68px;
+		top: 61px;
+		overflow: visible;
+		object-fit: contain;
+	}
+	#Athena_is_named_after_the_Gree {
+		border: 0px outset black;
+		top: 253px;
+		left: 1058px;
+		position: relative;
+		/*overflow: visible;*/
+		max-width: 800px;
+		text-align: center;
+		font-family: InaiMathi;
+		font-style: normal;
+		font-weight: bold;
+		font-size: 2vw;
+		color: rgba(255,255,255,1);
+	}
+	#About_Athena {
+		left: 1068px;
+		top: 142px;
+		position: absolute;
+		overflow: hidden;
+		width: 482px;
+		height: 91px;
+		text-align: left;
+		font-family: InaiMathi;
+		font-style: normal;
+		font-weight: bold;
+		font-size: 5vw;
+		color: rgba(255,255,255,1);
+	}
+	#greyButton {
+		position: absolute;
+		width: 242px;
+		height: 105px;
+		left: 1067px;
+		top: 750px;
+		overflow: visible;
+		--web-animation: fadein 0.5s ease-in-out;
+		--web-action-type: page;
+		/*--web-action-target: demo1.html;*/
+		cursor: pointer;
+	}
+	#Rectangle_1 {
+		fill: rgba(129,127,125,1);
+		stroke: rgba(112,112,112,1);
+		stroke-width: 1px;
+		stroke-linejoin: miter;
+		stroke-linecap: butt;
+		stroke-miterlimit: 4;
+		shape-rendering: auto;
+	}
+	.Rectangle_1 {
+		position: absolute;
+		overflow: visible;
+		width: 242px;
+		height: 105px;
+		left: 0px;
+		top: 0px;
+	}
+	#Try_Athena {
+		left: 51px;
+		top: 34px;
+		position: absolute;
+		overflow: visible;
+		width: 142px;
+		white-space: nowrap;
+		text-align: left;
+		font-family: InaiMathi;
+		font-style: normal;
+		font-weight: bold;
+		font-size: 30px;
+		color: rgba(255,255,255,1);
+	}
+</style>
+
+</head>
+<body id="mybody">
+<div id="about">
+	<img id="greekman" src="{{ url_for('static', filename= "greekman.png") }}" >
+
+	<div id="About_Athena">
+		<span>About Athena</span>
+	</div>
+	<div id="Athena_is_named_after_the_Gree">
+		<p>Athena is named after the Greek Goddess of Knowledge, and for good reason. We designed Athena to let our users convert any text document into a structured Knowledge Graph format. This would enable our users to analyze, examine and draw information from their datasets without having to spend countless hours reading, underlining, or highlighting the text manually. Essentially, Athena enables its users to ask questions and get answers without worrying about the text. </p>
+	</div>
+	<br>
+	<div id="greyButton" class="thenaButton">
+		<svg class="Rectangle_1">
+			<rect id="Rectangle_1" rx="15" ry="15" x="0" y="0" width="242" height="105">
+			</rect>
+		</svg>
+		<div id="Try_Athena">
+			<a href={{ url_for("homepage") }} class="mybutton"><span>Try Athena</span></a>
+		</div>
+	</div>
+</div>
+</body>
+</html>

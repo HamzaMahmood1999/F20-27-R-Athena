@@ -37,8 +37,8 @@
 	             padding: 12px 16px;
 	             text-decoration: none;
                  font-weight: 700;
-                 font-family: 'Courgette', cursive;
-                 font-size:30px;
+                 font-family: "Lucida Console", "Courier New", monospace;
+                 font-size:25px;
             }
             a:hover{
                 color: rgba(245, 245, 245, 0.897)
@@ -46,6 +46,37 @@
             .a1{
            float:left;
             }
+            .dropdown {
+                position: relative;
+                display: inline-block;
+                border-radius: 40px;
+              }
+
+            .dropdown-content {
+                display: none;
+                position: absolute;
+                background-color: #f9f9f9;
+                width: 60%;
+                box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+                z-index: 1;
+              }
+
+            .dropdown-content a {
+                color: black;
+                padding: 12px 16px;
+                text-decoration: none;
+                display: block;
+
+              }
+
+            .dropdown-content a:hover {background-color: #f1f1f1;
+            text-decoration:none;
+            color:black;
+            }
+
+            .dropdown:hover .dropdown-content {
+                display: block;
+              }
 
         </style>
             <script src="https://kit.fontawesome.com/a0d153bce5.js" crossorigin="anonymous"></script>
@@ -59,12 +90,25 @@
 
     <body >
 
-        <div class="input-group input-group-lg" style="width:80%;padding-left:20%;margin-top:10vh;">
-            <div class="input-group-prepend" >
-              <span class="input-group-text" id="inputGroup-sizing-lg" style="border-top:1px solid black;border-bottom:1px solid black;border-left:1px solid black;"><i class="fas fa-search"></i></span>
-            </div>
-            <input type="text" class="form-control" id="enter-text" placeholder="Enter your query here" aria-label="Large" aria-describedby="inputGroup-sizing-sm" style="border-top:1px solid black;border-bottom:1px solid black;border-right:1px solid black;">
-          </div>
+{#        <div class="input-group input-group-lg" style="width:80%;padding-left:20%;margin-top:10vh;">#}
+{#            <div class="input-group-prepend" >#}
+{#              <span class="input-group-text" id="inputGroup-sizing-lg" style="border-top:1px solid black;border-bottom:1px solid black;border-left:1px solid black;"><i class="fas fa-search"></i></span>#}
+{#            </div>#}
+{#            <input type="text" class="form-control" id="enter-text" placeholder="Enter your query here" aria-label="Large" aria-describedby="inputGroup-sizing-sm" style="border-top:1px solid black;border-bottom:1px solid black;border-right:1px solid black;">#}
+{#          </div>#}
+        <div class="dropdown" style="width:60%;margin-left:25%;margin-top:10vh;padding-right: 10% " >
+          <input type="text"  class="form-control" id="enter-text" placeholder="Enter your institute"  >
+        <div class="dropdown-content" style="width:83.5%;" id="enter-text" onchange()="select_school">
+            <a href={{ url_for("testroute") }} >Display all entities</a>
+            <a  href={{ url_for("sampleQuery") }} >Display all entities in the DB but limit results to 25 nodes</a>
+            <a  href={{ url_for("sampleQuery2") }} >List all organizations that started an object</a>
+            <a href={{ url_for("sampleQuery3") }}  >Display all peeps who were replaced with someone else </a>
+            <a  href={{ url_for("sampleQuery4") }} >List all relationships of the geopolitical entity named East Pakistan</a>
+            <a href={{ url_for("sampleQuery5") }} >Who was issued ABL shares?</a>
+
+        </div>
+
+        </div>
         <div id="viz"></div>
         <div class="button-div">
             <a href={{ url_for("homepage") }} class="a1"><i class="fas fa-long-arrow-alt-left"></i> Back</a>
@@ -82,7 +126,7 @@
             }
 });
 function draw(query) {
-                var query = query_text
+                var query = query_text;
                 var config = {
                     container_id: "viz",
                     server_url: "bolt://127.0.0.1:7687",
